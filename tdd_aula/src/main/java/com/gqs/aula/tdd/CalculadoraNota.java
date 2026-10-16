@@ -40,12 +40,6 @@ public class CalculadoraNota {
     public double aplicarAI(double a1, double a2, double a3, double notaAI) {
         double notaFinal = calcularNotaFinal(a1, a2, a3);
         validarNota(notaAI, NOTA_MAXIMA_A1_A2, "AI");
-        if (notaAI > a1 && a1 <= a2) {
-            return notaAI + a2 + a3;
-        }
-        if (notaAI > a2 && a2 < a1) {
-            return a1 + notaAI + a3;
-        }
-        return notaFinal;
+        return notaFinal + Math.max(0, notaAI - Math.min(a1, a2));
     }
 }
