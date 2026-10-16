@@ -28,4 +28,8 @@ public class CalculadoraNota {
         return estaAprovadoPorNota(notaFinal) && frequencia >= FREQUENCIA_MINIMA
             ? "APROVADO" : "REPROVADO";
     }
+
+    public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
+        return false;
+    }
 }
