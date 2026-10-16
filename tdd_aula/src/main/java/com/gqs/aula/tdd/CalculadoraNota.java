@@ -1,6 +1,7 @@
 package com.gqs.aula.tdd;
 
 public class CalculadoraNota {
+    public static final double FREQUENCIA_MINIMA = 75;
     public static final double NOTA_MAXIMA_A1_A2 = 30;
     public static final double NOTA_MAXIMA_A3 = 40;
     public static final double NOTA_MINIMA_APROVACAO = 70;
@@ -24,7 +25,7 @@ public class CalculadoraNota {
     }
 
     public String situacao(double notaFinal, double frequencia) {
-        return estaAprovadoPorNota(notaFinal) && frequencia >= 75
+        return estaAprovadoPorNota(notaFinal) && frequencia >= FREQUENCIA_MINIMA
             ? "APROVADO" : "REPROVADO";
     }
 }
