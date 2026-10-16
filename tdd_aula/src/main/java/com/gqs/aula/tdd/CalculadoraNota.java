@@ -1,6 +1,9 @@
 package com.gqs.aula.tdd;
 
 public class CalculadoraNota {
+    public static final String APROVADO = "APROVADO";
+    public static final String REPROVADO_POR_FALTA = "REPROVADO POR FALTA";
+    public static final String REPROVADO_POR_NOTA = "REPROVADO POR NOTA";
     public static final double SOMA_MINIMA_AI = 40;
     public static final double FREQUENCIA_MINIMA = 75;
     public static final double NOTA_MAXIMA_A1_A2 = 30;
@@ -27,9 +30,9 @@ public class CalculadoraNota {
 
     public String situacao(double notaFinal, double frequencia) {
         if (frequencia < FREQUENCIA_MINIMA) {
-            return "REPROVADO POR FALTA";
+            return REPROVADO_POR_FALTA;
         }
-        return estaAprovadoPorNota(notaFinal) ? "APROVADO" : "REPROVADO POR NOTA";
+        return estaAprovadoPorNota(notaFinal) ? APROVADO : REPROVADO_POR_NOTA;
     }
 
     public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
