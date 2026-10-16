@@ -10,4 +10,10 @@ public class CalculadoraNotaTest {
         assertEquals(70, calc.calcularNotaFinal(20, 20, 30));
     }
 
+    @Test
+    void deveSomarOutrasNotas() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(50, calc.calcularNotaFinal(10, 15, 25));
+    }
+
 }
