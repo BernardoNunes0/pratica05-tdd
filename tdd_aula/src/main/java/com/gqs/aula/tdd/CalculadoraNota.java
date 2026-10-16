@@ -1,6 +1,7 @@
 package com.gqs.aula.tdd;
 
 public class CalculadoraNota {
+    public static final double SOMA_MINIMA_AI = 40;
     public static final double FREQUENCIA_MINIMA = 75;
     public static final double NOTA_MAXIMA_A1_A2 = 30;
     public static final double NOTA_MAXIMA_A3 = 40;
@@ -33,6 +34,6 @@ public class CalculadoraNota {
         double notaFinal = calcularNotaFinal(a1, a2, a3);
         return !estaAprovadoPorNota(notaFinal)
             && frequencia >= FREQUENCIA_MINIMA
-            && (a1 + a3 >= 40 || a2 + a3 >= 40);
+            && (a1 + a3 >= SOMA_MINIMA_AI || a2 + a3 >= SOMA_MINIMA_AI);
     }
 }
