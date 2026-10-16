@@ -36,4 +36,8 @@ public class CalculadoraNota {
             && frequencia >= FREQUENCIA_MINIMA
             && (a1 + a3 >= SOMA_MINIMA_AI || a2 + a3 >= SOMA_MINIMA_AI);
     }
+
+    public double aplicarAI(double a1, double a2, double a3, double notaAI) {
+        return calcularNotaFinal(a1, a2, a3);
+    }
 }

@@ -112,4 +112,58 @@ public class CalculadoraNotaTest {
         assertFalse(calc.podeFazerAI(5, 5, 30, 80));
     }
 
+    @Test
+    void deveSubstituirA1PelaAI() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(75, calc.aplicarAI(10, 20, 30, 25));
+    }
+
+    @Test
+    void deveSubstituirA2PelaAI() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(75, calc.aplicarAI(20, 10, 30, 25));
+    }
+
+    @Test
+    void naoDeveSubstituirComAIBaixa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(60, calc.aplicarAI(10, 20, 30, 5));
+    }
+
+    @Test
+    void naoDeveSubstituirComAIIgualAMenor() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(60, calc.aplicarAI(10, 20, 30, 10));
+    }
+
+    @Test
+    void deveSubstituirUmaNotaQuandoA1EA2SaoIguais() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(65, calc.aplicarAI(10, 10, 30, 25));
+    }
+
+    @Test
+    void deveAceitarAIZero() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(60, calc.aplicarAI(10, 20, 30, 0));
+    }
+
+    @Test
+    void deveAceitarAIMaxima() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(80, calc.aplicarAI(10, 20, 30, 30));
+    }
+
+    @Test
+    void deveRejeitarAINegativa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class, () -> calc.aplicarAI(10, 20, 30, -1));
+    }
+
+    @Test
+    void deveRejeitarAIMaiorQue30() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class, () -> calc.aplicarAI(10, 20, 30, 31));
+    }
+
 }
