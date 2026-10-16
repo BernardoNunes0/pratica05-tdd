@@ -24,6 +24,7 @@ public class CalculadoraNota {
     }
 
     public String situacao(double notaFinal, double frequencia) {
-        return "";
+        return estaAprovadoPorNota(notaFinal) && frequencia >= 75
+            ? "APROVADO" : "REPROVADO";
     }
 }
