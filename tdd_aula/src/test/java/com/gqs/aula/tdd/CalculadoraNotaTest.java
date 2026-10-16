@@ -172,4 +172,52 @@ public class CalculadoraNotaTest {
         assertEquals("REPROVADO POR FALTA", calc.situacao(50, 60));
     }
 
+    @Test
+    void deveSomarNotasZero() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(0, calc.calcularNotaFinal(0, 0, 0));
+    }
+
+    @Test
+    void deveSomarNotasDecimais() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(70, calc.calcularNotaFinal(20.5, 19.5, 30));
+    }
+
+    @Test
+    void deveRejeitarA2Negativa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularNotaFinal(20, -1, 30));
+    }
+
+    @Test
+    void deveRejeitarA3Negativa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class, () -> calc.calcularNotaFinal(20, 20, -1));
+    }
+
+    @Test
+    void devePermitirAIComFrequenciaExatamente75() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertTrue(calc.podeFazerAI(10, 5, 30, 75));
+    }
+
+    @Test
+    void deveNegarAIComNotaExatamente70() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertFalse(calc.podeFazerAI(20, 20, 30, 80));
+    }
+
+    @Test
+    void deveReprovarComNotaImediatamenteAbaixoDe70() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals("REPROVADO POR NOTA", calc.situacao(69.99, 75));
+    }
+
+    @Test
+    void deveRejeitarNotaOriginalInvalidaAoAplicarAI() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class, () -> calc.aplicarAI(-1, 20, 30, 25));
+    }
+
 }
