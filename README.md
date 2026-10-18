@@ -19,5 +19,3 @@ Calculadora de notas da disciplina Gestão e Qualidade de Software. Projeto Mave
 5. Capture o painel real com todos os testes verdes para a entrega.
 
 O histórico contém os oito ciclos com commits RED antes de GREEN e as refatorações. As fases foram realmente compiladas e executadas com Java 8 e JUnit Platform Console; os RED falharam e os GREEN/REFACTOR passaram. A verificação automatizada usa o mesmo JUnit 5, mas não substitui o print do frasquinho solicitado nos slides.
-
-As respostas estão em [RESPOSTAS.md](RESPOSTAS.md). Revise especialmente a resposta pessoal da questão 5 antes de entregar.
